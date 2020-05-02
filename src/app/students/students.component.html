@@ -1,9 +1,5 @@
 <div>
-  <div>
-    {{ a }}
-  </div>
-
-  <div *ngFor="let student of studentsFromServer">
+  <div *ngFor="let student of students">
     <div>
       {{ student.id }}
       {{ student.firstName }}
@@ -15,19 +11,19 @@
 
   <div>
     <label>
-      <input type="text" placeholder="First name" [formControl]="firstName"/>
+      <input type="text" placeholder="First name" [(ngModel)]="student.firstName"/>
     </label>
     <label>
-      <input type="text" placeholder="Last name" [formControl]="lastName"/>
+      <input type="text" placeholder="Last name" [(ngModel)]="student.lastName"/>
     </label>
     <label>
-      <input type="text" placeholder="Major" [formControl]="major"/>
+      <input type="text" placeholder="Major" [(ngModel)]="student.major"/>
     </label>
     <label>
-      <input type="text" placeholder="Birthday" [formControl]="birthDay"/>
+      <input type="text" placeholder="Birthday" [(ngModel)]="student.birthDay"/>
     </label>
     <label>
-      <button (click)="createStudent()" class="btn">Create</button>
+      <button (click)="createStudent(student)" class="btn">Create</button>
     </label>
   </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Student from '../../objects/student';
 import { FormControl } from '@angular/forms';
 import {StudentService} from '../../services/student.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -10,30 +11,8 @@ import {StudentService} from '../../services/student.service';
 })
 export class StudentsComponent implements OnInit {
 
-  a = 'Text777';
-  students: Student[] = [
-    {
-      id: '1',
-      firstName: 'Pavel',
-      lastName: 'Durov',
-      major: 'Poliglot',
-      birthDay: 23244
-    },
-    {
-      id: '2',
-      firstName: 'Artemiy',
-      lastName: 'Lebedev',
-      major: 'Designer',
-      birthDay: 348921
-    }
-  ];
-
-  firstName = new FormControl();
-  lastName = new FormControl();
-  major = new FormControl();
-  birthDay = new FormControl();
-
-  public studentsFromServer;
+  public students;
+  public student = new Student();
 
   ngOnInit(): void {
     this.getStudents();
@@ -45,7 +24,7 @@ export class StudentsComponent implements OnInit {
   getStudents() {
     this.studentService.getStudents().subscribe(
       // the first argument is a function which runs on success
-      data => { this.studentsFromServer = data; },
+      data => { this.students = data; },
       // the second argument is a function which runs on error
       err => console.error(err),
       // the third argument is a function which runs on completion
@@ -53,14 +32,15 @@ export class StudentsComponent implements OnInit {
     );
   }
 
-  createStudent() {
-    const student = new Student();
-    student.firstName = this.firstName.value;
-    student.lastName = this.lastName.value;
-    student.major = this.major.value;
-    student.birthDay = this.birthDay.value;
-
-    // console.log(student);
-    this.students.push(student);
+  createStudent(student) {
+    this.studentService.createStudent(student).subscribe(
+      data => {
+        this.getStudents();
+        return true;
+      },
+      error => {
+        console.log('Error saving student');
+      }
+    );
   }
 }
