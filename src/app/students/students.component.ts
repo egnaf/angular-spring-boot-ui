@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class StudentsComponent implements OnInit {
 
-  public students;
+  public students: Student[] = [];
   public student = new Student();
 
   ngOnInit(): void {
@@ -24,11 +24,11 @@ export class StudentsComponent implements OnInit {
   getStudents() {
     this.studentService.getStudents().subscribe(
       // the first argument is a function which runs on success
-      data => { this.students = data; },
+      data => { this.students = data as any; },
       // the second argument is a function which runs on error
       err => console.error(err),
       // the third argument is a function which runs on completion
-      () => console.log('done loading foods')
+      () => console.log('done loading students')
     );
   }
 

@@ -1,0 +1,15 @@
+.container {
+  display: block;
+  width: 100%;
+}
+.container .wrapper {
+  display: block;
+  width: 1000px;
+  margin: 0 auto;
+}
+.container .wrapper .content {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px 0;
+}

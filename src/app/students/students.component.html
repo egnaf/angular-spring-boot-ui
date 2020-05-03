@@ -1,11 +1,11 @@
 <div>
   <div *ngFor="let student of students">
-    <div>
-      {{ student.id }}
-      {{ student.firstName }}
-      {{ student.lastName }}
-      {{ student.major }}
-      {{ student.birthDay }}
+    <div style="padding: 10px 0; margin: 10px 0; background: #eee;">
+      <a routerLink="/students/{{ student.id }}">
+        {{ student.firstName }}
+        {{ student.lastName }}
+        {{ student.major }}
+      </a>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
       <input type="text" placeholder="Major" [(ngModel)]="student.major"/>
     </label>
     <label>
-      <input type="text" placeholder="Birthday" [(ngModel)]="student.birthDay"/>
+      <input type="text" placeholder="Birthday" [(ngModel)]="student.birthday"/>
     </label>
     <label>
       <button (click)="createStudent(student)" class="btn">Create</button>

@@ -3,5 +3,5 @@ export default class Student {
   firstName: string;
   lastName: string;
   major: string;
-  birthDay: number;
+  birthday: number;
 }
