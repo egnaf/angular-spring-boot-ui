@@ -1,7 +1,8 @@
 <div>
-  <div *ngFor="let student of students">
+  <div *ngFor="let student of students; let num= index">
     <div style="padding: 10px 0; margin: 10px 0; background: #eee;">
       <a routerLink="/students/{{ student.id }}">
+        {{ num }}.
         {{ student.firstName }}
         {{ student.lastName }}
         {{ student.major }}
