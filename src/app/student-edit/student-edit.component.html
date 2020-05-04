@@ -1,0 +1,17 @@
+<div>
+  <label>
+    <input class="form-line" type="text" placeholder="First name" [(ngModel)]="student.firstName" value="{{ student.firstName }}"/>
+  </label>
+  <label>
+    <input class="form-line" type="text" placeholder="Last name" [(ngModel)]="student.lastName" value="{{ student.lastName }}"/>
+  </label>
+  <label>
+    <input class="form-line" type="text" placeholder="Major" [(ngModel)]="student.major" value="{{ student.major }}"/>
+  </label>
+  <label>
+    <input class="form-line" type="text" placeholder="Birthday" [(ngModel)]="student.birthday" value="{{ student.birthday }}"/>
+  </label>
+  <label>
+    <button class="btn-primary" (click)="updateStudent(student)">Update</button>
+  </label>
+</div>
