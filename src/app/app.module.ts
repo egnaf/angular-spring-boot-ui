@@ -15,10 +15,12 @@ import { StudentService } from '../services/student.service';
 import { HeaderComponent } from './header/header.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
+import { StudentAddComponent } from './student-add/student-add.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'students', component: StudentsComponent},
+  {path: 'students/add', component: StudentAddComponent},
   {path: 'students/:id', component: StudentDetailComponent},
   {path: 'students/edit/:id', component: StudentEditComponent},
   {path: '**', component: NotFoundComponent}
@@ -32,7 +34,8 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     StudentDetailComponent,
-    StudentEditComponent
+    StudentEditComponent,
+    StudentAddComponent
   ],
   imports: [
     BrowserModule,

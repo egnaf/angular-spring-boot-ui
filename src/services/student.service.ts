@@ -33,7 +33,7 @@ export class StudentService {
     return this.http.post(this.gateway + `/students`, body, httpOptions);
   }
 
-  deleteStudent(student) {
-    return this.http.delete(this.gateway + `/students` + student.id);
+  deleteStudent(id) {
+    return this.http.delete(this.gateway + `/students/` + id);
   }
 }

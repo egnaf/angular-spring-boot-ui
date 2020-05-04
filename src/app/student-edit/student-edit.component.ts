@@ -33,11 +33,14 @@ export class StudentEditComponent implements OnInit {
     });
   }
 
+  cancel() {
+    this.router.navigate(['/students/' + this.student.id]).then(() => {});
+  }
+
   updateStudent(student) {
     this.studentService.updateStudent(student).subscribe(
       () => {
         this.router.navigate(['/students/' + this.student.id]).then(() => {});
-        return true;
       },
       () => {
         console.log('Error updating student');

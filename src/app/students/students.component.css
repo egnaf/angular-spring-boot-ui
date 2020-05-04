@@ -1,0 +1,14 @@
+.post {
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, .4);
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.post a {
+  text-decoration: none;
+}
+.post a:hover {
+  color: #5fa0e5;
+}
+

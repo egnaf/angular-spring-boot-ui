@@ -1,31 +1,15 @@
 <div>
+  <label>
+    <a class="btn-primary btn-round" routerLink="/students/add">Create student</a>
+  </label>
   <div *ngFor="let student of students; let num= index">
-    <div style="padding: 10px 0; margin: 10px 0; background: #eee;">
+    <div class="post">
       <a routerLink="/students/{{ student.id }}">
         {{ num }}.
         {{ student.firstName }}
         {{ student.lastName }}
-        {{ student.major }}
+        ({{ student.major }})
       </a>
     </div>
   </div>
-
-  <div>
-    <label>
-      <input type="text" placeholder="First name" [(ngModel)]="student.firstName"/>
-    </label>
-    <label>
-      <input type="text" placeholder="Last name" [(ngModel)]="student.lastName"/>
-    </label>
-    <label>
-      <input type="text" placeholder="Major" [(ngModel)]="student.major"/>
-    </label>
-    <label>
-      <input type="text" placeholder="Birthday" [(ngModel)]="student.birthday"/>
-    </label>
-    <label>
-      <button (click)="createStudent(student)" class="btn">Create</button>
-    </label>
-  </div>
-
 </div>

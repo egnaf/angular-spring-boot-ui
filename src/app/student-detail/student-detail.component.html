@@ -1,7 +1,13 @@
 <div>
   <h2>{{ student.firstName }} {{ student.lastName }}
-    <a class="edit" routerLink="/students/edit/{{ student.id }}">Edit</a></h2>
+    <a class="btn-basic edit btn-round" routerLink="/students/edit/{{ student.id }}">Edit</a></h2>
 
   <b>Profession:</b> &nbsp;<span>{{ student.major }}</span><br>
   <b>Birthday:</b> &nbsp;<span>{{ birthday | date:'dd.MM.yyyy' }}</span><br>
+
+  <div style="margin: 40px 0">
+    <label>
+      <button class="btn-default btn-round" (click)="deleteStudent(student.id)">Delete</button>
+    </label>
+  </div>
 </div>
